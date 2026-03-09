@@ -37,4 +37,5 @@ load_task = PythonOperator(
 )
 
 # Task dependency
+
 extract_task >> transform_task >> load_task
