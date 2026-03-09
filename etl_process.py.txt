@@ -1,0 +1,18 @@
+import pandas as pd
+
+def extract_data():
+    print("Extracting data from source")
+    data = {"name": ["John", "Alice"], "age": [28, 32]}
+    df = pd.DataFrame(data)
+    df.to_csv("/tmp/raw_data.csv", index=False)
+
+def transform_data():
+    print("Transforming data")
+    df = pd.read_csv("/tmp/raw_data.csv")
+    df["age_plus_10"] = df["age"] + 10
+    df.to_csv("/tmp/transformed_data.csv", index=False)
+
+def load_data():
+    print("Loading data to target system")
+    df = pd.read_csv("/tmp/transformed_data.csv")
+    print(df)
